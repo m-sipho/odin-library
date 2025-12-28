@@ -168,3 +168,19 @@ body {
     height: 24px;
     fill: var(--text-color);
 }
+
+.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-author {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-header button {
+    flex-shrink: 0;
+}
