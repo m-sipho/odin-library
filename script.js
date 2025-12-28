@@ -47,7 +47,7 @@ function displayBooks() {
 
         const cardAuthor = document.createElement("div");
         cardAuthor.className = "card-author";
-        cardAuthor.textContent = myLibrary[i]["author"];
+        cardAuthor.textContent = `by ${myLibrary[i]["author"]}`;
 
         const pages = document.createElement("div");
         pages.className = "pages";
@@ -78,7 +78,6 @@ function displayBooks() {
 }
 
 window.onload = () => {
-    //
     addBookToLibrary("12 Rules for Life: An antidote to chaos", "Jordan Peterson", 451, false);
     addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
 }

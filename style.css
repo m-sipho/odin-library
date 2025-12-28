@@ -126,9 +126,10 @@ body {
 }
 
 .card-author {
-    color: var(--text-color);
+    color: var(--text-muted);
     font-family: cursive;
     margin: 1.8rem 0 1rem;
+    font-size: .85rem;
 }
 
 .pages {
