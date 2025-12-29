@@ -2,6 +2,7 @@
     --bg-color: #0b0f19;
     --nav-color: #060a14;
     --bg-card: #111827;
+    --bg-input: #060a12;
     --primary-color: #4f46e5;
     --primary-hover: #4333ca;
     --text-color: #f3f3f3;
@@ -154,7 +155,7 @@ body {
     width: 100%;
     padding: .75rem;
     margin-top: 10px;
-    background-color: #198754;
+    /* background-color: #198754; */
     border: none;
     outline: none;
     color: var(--text-color);
@@ -162,6 +163,14 @@ body {
     font-size: .875rem;
     font-weight: 600;
     cursor: pointer;
+}
+
+.success {
+    background-color: #198754;
+}
+
+.failure {
+    background-color: #e6644a;
 }
 
 .status svg {
@@ -185,3 +194,147 @@ body {
 .card-header button {
     flex-shrink: 0;
 }
+
+dialog {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+    margin: auto;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.479);
+    backdrop-filter: blur(4px);
+}
+
+dialog .close-btn {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    opacity: .5;
+    fill: var(--text-color);
+}
+
+dialog form>input {
+    width: 100%;
+    padding: .75rem;
+    margin-bottom: 1rem;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: .5rem;
+    color: var(--text-color);
+    outline: none;
+}
+
+dialog form>input:first-child{
+    margin-top: 1rem;
+}
+
+dialog button[type="submit"] {
+    width: 100%;
+    padding: .75rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: .5rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    margin-top: 1rem;
+}
+
+dialog button[type="submit"]:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Remove arrows in Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.checkbox-wrapper-46 input[type="checkbox"] {
+    display: none;
+    visibility: hidden;
+  }
+
+  .checkbox-wrapper-46 .cbx {
+    margin: auto;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+  }
+  .checkbox-wrapper-46 .cbx span {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translate3d(0, 0, 0);
+  }
+  .checkbox-wrapper-46 .cbx span:first-child {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    transform: scale(1);
+    vertical-align: middle;
+    border: 1px solid #9098A9;
+    transition: all 0.2s ease;
+  }
+  .checkbox-wrapper-46 .cbx span:first-child svg {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    fill: none;
+    stroke: #FFFFFF;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 16px;
+    stroke-dashoffset: 16px;
+    transition: all 0.3s ease;
+    transition-delay: 0.1s;
+    transform: translate3d(0, 0, 0);
+  }
+  .checkbox-wrapper-46 .cbx span:first-child:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #506EEC;
+    display: block;
+    transform: scale(0);
+    opacity: 1;
+    border-radius: 50%;
+  }
+  .checkbox-wrapper-46 .cbx span:last-child {
+    padding-left: 8px;
+  }
+  .checkbox-wrapper-46 .cbx:hover span:first-child {
+    border-color: #506EEC;
+  }
+
+  .checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child {
+    background: #506EEC;
+    border-color: #506EEC;
+    animation: wave-46 0.4s ease;
+  }
+  .checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child svg {
+    stroke-dashoffset: 0;
+  }
+  .checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child:before {
+    transform: scale(3.5);
+    opacity: 0;
+    transition: all 0.6s ease;
+  }
+
+  @keyframes wave-46 {
+    50% {
+      transform: scale(0.9);
+    }
+  }

@@ -61,11 +61,23 @@ function displayBooks() {
 
         const statusButton = document.createElement("button");
         statusButton.className = "status";
-        statusButton.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0.41,13.41L6,19L7.41,17.58L1.83,12M22.24,5.58L11.66,16.17L7.5,12L6.07,13.41L11.66,19L23.66,7M18,7L16.59,5.58L10.24,11.93L11.66,13.34L18,7Z" /></svg>
-        `;
+        if (myLibrary[i]["read"]) {
+            statusButton.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0.41,13.41L6,19L7.41,17.58L1.83,12M22.24,5.58L11.66,16.17L7.5,12L6.07,13.41L11.66,19L23.66,7M18,7L16.59,5.58L10.24,11.93L11.66,13.34L18,7Z" /></svg>
+            `;
+        } else {
+            statusButton.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" /></svg>
+            `;
+        }
         const statusSpan = document.createElement("span");
         statusSpan.textContent = myLibrary[i]["read"] ? "Finished" : "Mark as read";
+        if (myLibrary[i]["read"]) {
+            statusButton.classList.add("success");
+        } else {
+            statusButton.classList.add("failure");
+        }
+
         statusButton.appendChild(statusSpan);
 
         card.appendChild(cardHeader);
@@ -81,3 +93,35 @@ window.onload = () => {
     addBookToLibrary("12 Rules for Life: An antidote to chaos", "Jordan Peterson", 451, false);
     addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
 }
+
+// Functionality of add button
+const addButton = document.querySelector(".add-button");
+const dialog = document.getElementById("dialog");
+const closeBtn = document.querySelector(".close-btn");
+const sendBtn = document.querySelector(".submit-btn");
+
+// Form data
+const formTitle = document.getElementById("title");
+const formAuthor = document.getElementById("author");
+const formPages = document.getElementById("no-pages");
+const formCheckBox = document.querySelector(".inp-cbx");
+const form = document.querySelector("form");
+
+
+//Show modal
+addButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+// CLose modal
+closeBtn.addEventListener("click", () => {
+    dialog.close();
+    form.reset();
+});
+
+sendBtn.addEventListener("click", (e) =>{
+    e.preventDefault();
+    addBookToLibrary(formTitle.value, formAuthor.value, formPages.value, formCheckBox.checked);
+    dialog.close();
+    form.reset();
+});
