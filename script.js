@@ -26,6 +26,13 @@ function displayBooks() {
     const booksGrid = document.querySelector(".books-grid");
     booksGrid.replaceChildren();
 
+    if (myLibrary.length == 0) {
+        document.querySelector(".empty-state").style.display = "flex";
+        return;
+    }
+
+    document.querySelector(".empty-state").style.display = "none";
+
     myLibrary.forEach((book) => {
         const card = document.createElement("div");
         card.className = "card";
